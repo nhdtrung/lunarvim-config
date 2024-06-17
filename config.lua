@@ -16,7 +16,7 @@ lvim.builtin.terminal.open_mapping = "<leader>t"
 lvim.keys.normal_mode = {
   [",."] = "g;",                -- Go to last edit location
   [",z"] = ":bprevious<CR>",    -- Move to previous buffer
-  [",x"] = ":bnext<CR>",        -- Move to next buffer
+  [",x"] = ":bnext<CR>",        -- Move to next buffe
   -- ["H"] = "H",                  -- Move to top of the screen
   -- ["M"] = "M",                  -- Move to middle of the screen
   -- ["L"] = "L",                  -- Move to bottom of the screen
@@ -30,6 +30,18 @@ lvim.keys.normal_mode = {
   ["<C-o>"] = "<C-o>",          -- Go to older cursor position
   ["<C-i>"] = "<C-i>",          -- Go to newer cursor position
 }
+
+-- Custom key mappings for splitting windows
+-- Vertical split
+lvim.keys.normal_mode["<leader>v"] = ":vsplit<CR>"
+-- Horizontal split
+lvim.keys.normal_mode["<leader>V"] = ":split<CR>"
+
+-- NvimTree configuration
+-- lvim.builtin.nvimtree.setup.view.mappings.list = {
+  -- { key = "v", action = "vsplit" },  -- Vertical split with 'v'
+  -- { key = "vh", action = "split" },   -- Horizontal split with 's'
+-- }
 
 -- File Navigation
 lvim.keys.normal_mode["//"] = ":noh<CR>"                       -- Clear the search
@@ -47,5 +59,25 @@ lvim.keys.visual_mode = {
   [",}"] = "ysiw}",    -- Surround word with }
 }
 
--- -- WhichKey mappings
+-- Plugin installation
+lvim.plugins = {
+  {
+    "gbprod/yanky.nvim",
+    config = function()
+      require("yanky").setup({
+        -- Your configuration options here
+      })
+    end,
+  },
+}
 
+-- Yanky key mappings
+-- lvim.keys.normal_mode["p"] = "<Plug>(YankyPutAfter)"
+-- lvim.keys.normal_mode["P"] = "<Plug>(YankyPutBefore)"
+-- lvim.keys.normal_mode["gp"] = "<Plug>(YankyGPutAfter)"
+-- lvim.keys.normal_mode["gP"] = "<Plug>(YankyGPutBefore)"
+
+-- lvim.keys.visual_mode["p"] = "<Plug>(YankyPutAfter)"
+-- lvim.keys.visual_mode["P"] = "<Plug>(YankyPutBefore)"
+-- lvim.keys.visual_mode["gp"] = "<Plug>(YankyGPutAfter)"
+-- lvim.keys.visual_mode["gP"] = "<Plug>(YankyGPutBefore)"
