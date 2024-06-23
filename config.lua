@@ -11,20 +11,19 @@ lvim.leader = ","
 -- Open/Close toggleterm
 lvim.builtin.terminal.open_mapping = "<leader>t"
 
-
 -- Normal mode key mapping
 lvim.keys.normal_mode = {
   [",."] = "g;",                -- Go to last edit location
   [",z"] = ":bprevious<CR>",    -- Move to previous buffer
   [",x"] = ":bnext<CR>",        -- Move to next buffe
-  -- ["H"] = "H",                  -- Move to top of the screen
-  -- ["M"] = "M",                  -- Move to middle of the screen
-  -- ["L"] = "L",                  -- Move to bottom of the screen
-  -- ["zz"] = "zz",                -- Center the screen on the current line
-  -- ["zt"] = "zt",                -- Move the current line to the top of the screen
-  -- ["zb"] = "zb",                -- Move the current line to the bottom of the screen
-  -- ["<C-u>"] = "<C-u>zz",        -- Scroll half page up and center
-  -- ["<C-d>"] = "<C-d>zz",        -- Scroll half page down and center
+  ["H"] = "H",                  -- Move to top of the screen
+  ["M"] = "M",                  -- Move to middle of the screen
+  ["L"] = "L",                  -- Move to bottom of the screen
+  ["zz"] = "zz",                -- Center the screen on the current line
+  ["zt"] = "zt",                -- Move the current line to the top of the screen
+  ["zb"] = "zb",                -- Move the current line to the bottom of the screen
+  ["<C-u>"] = "<C-u>zz",        -- Scroll half page up and center
+  ["<C-d>"] = "<C-d>zz",        -- Scroll half page down and center
   ["<C-b>"] = "<C-b>",          -- Scroll full page up
   ["<C-f>"] = "<C-f>",          -- Scroll full page down
   ["<C-o>"] = "<C-o>",          -- Go to older cursor position
@@ -68,15 +67,32 @@ lvim.plugins = {
         -- Your configuration options here
       })
     end,
-    "easymotion/vim-easymotion"
+  },
+  "easymotion/vim-easymotion",
+  {
+    "rmagatti/auto-session",
+    config = function()
+      require("auto-session").setup {
+        log_level = "error",
+        auto_session_suppress_dirs = { "~/", "~/code", "~/Downloads", "/" },
+      }
+  end
   },
 }
 
 -- normal mode (easymotion-like)
-lvim.keys.normal_mode("<Leader><Leader>b", "<cmd>HopWordBC<CR>", {noremap=true})
-lvim.keys.normal_mode("<Leader><Leader>w", "<cmd>HopWordAC<CR>", {noremap=true})
-lvim.keys.normal_mode("<Leader><Leader>j", "<cmd>HopLineAC<CR>", {noremap=true})
-lvim.keys.normal_mode("<Leader><Leader>k", "<cmd>HopLineBC<CR>", {noremap=true})
+-- lvim.keys.normal_mode["<Leader><Leader>b"] = "<cmd>HopWordBC<CR>"
+-- lvim.keys.normal_mode["<Leader><Leader>b"] = { "<cmd>HopWordBC<CR>", { noremap = true } }
+-- lvim.keys.normal_mode["<Leader><Leader>w"] = { "<cmd>HopWordAC<CR>", { noremap = true } }
+-- lvim.keys.normal_mode["<Leader><Leader>j"] = { "<cmd>HopLineAC<CR>", { noremap = true } }
+-- lvim.keys.normal_mode["<Leader><Leader>k"] = { "<cmd>HopLineBC<CR>", { noremap = true } }
+
+-- Set key mappings for Hop commands
+vim.keymap.set('n', '<Leader><Leader>b', '<cmd>HopWordBC<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<Leader><Leader>w', '<cmd>HopWordAC<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<Leader><Leader>j', '<cmd>HopLineAC<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<Leader><Leader>k', '<cmd>HopLineBC<CR>', { noremap = true, silent = true })
+
 
 -- Yanky key mappings
 -- lvim.keys.normal_mode["p"] = "<Plug>(YankyPutAfter)"
