@@ -68,8 +68,15 @@ lvim.plugins = {
         -- Your configuration options here
       })
     end,
+    "easymotion/vim-easymotion"
   },
 }
+
+-- normal mode (easymotion-like)
+lvim.keys.normal_mode("<Leader><Leader>b", "<cmd>HopWordBC<CR>", {noremap=true})
+lvim.keys.normal_mode("<Leader><Leader>w", "<cmd>HopWordAC<CR>", {noremap=true})
+lvim.keys.normal_mode("<Leader><Leader>j", "<cmd>HopLineAC<CR>", {noremap=true})
+lvim.keys.normal_mode("<Leader><Leader>k", "<cmd>HopLineBC<CR>", {noremap=true})
 
 -- Yanky key mappings
 -- lvim.keys.normal_mode["p"] = "<Plug>(YankyPutAfter)"
