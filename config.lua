@@ -6,7 +6,7 @@
 -- Add your custom key mappings
 --
 
-require("./plugins/telescope")
+require("./plugins/treesitter")
 
 -- Set leader key to comma
 lvim.leader = ","
