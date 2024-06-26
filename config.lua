@@ -5,6 +5,9 @@
 --
 -- Add your custom key mappings
 --
+
+require("./plugins/telescope")
+
 -- Set leader key to comma
 lvim.leader = ","
 
@@ -80,27 +83,9 @@ lvim.plugins = {
   },
 }
 
--- normal mode (easymotion-like)
--- lvim.keys.normal_mode["<Leader><Leader>b"] = "<cmd>HopWordBC<CR>"
--- lvim.keys.normal_mode["<Leader><Leader>b"] = { "<cmd>HopWordBC<CR>", { noremap = true } }
--- lvim.keys.normal_mode["<Leader><Leader>w"] = { "<cmd>HopWordAC<CR>", { noremap = true } }
--- lvim.keys.normal_mode["<Leader><Leader>j"] = { "<cmd>HopLineAC<CR>", { noremap = true } }
--- lvim.keys.normal_mode["<Leader><Leader>k"] = { "<cmd>HopLineBC<CR>", { noremap = true } }
-
 -- Set key mappings for Hop commands
 vim.keymap.set('n', '<Leader><Leader>b', '<cmd>HopWordBC<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<Leader><Leader>w', '<cmd>HopWordAC<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<Leader><Leader>j', '<cmd>HopLineAC<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<Leader><Leader>k', '<cmd>HopLineBC<CR>', { noremap = true, silent = true })
 
-
--- Yanky key mappings
--- lvim.keys.normal_mode["p"] = "<Plug>(YankyPutAfter)"
--- lvim.keys.normal_mode["P"] = "<Plug>(YankyPutBefore)"
--- lvim.keys.normal_mode["gp"] = "<Plug>(YankyGPutAfter)"
--- lvim.keys.normal_mode["gP"] = "<Plug>(YankyGPutBefore)"
-
--- lvim.keys.visual_mode["p"] = "<Plug>(YankyPutAfter)"
--- lvim.keys.visual_mode["P"] = "<Plug>(YankyPutBefore)"
--- lvim.keys.visual_mode["gp"] = "<Plug>(YankyGPutAfter)"
--- lvim.keys.visual_mode["gP"] = "<Plug>(YankyGPutBefore)"
