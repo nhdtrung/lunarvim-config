@@ -58,28 +58,6 @@ lvim.keys.visual_mode = {
   [",}"] = "ysiw}",    -- Surround word with }
 }
 
--- Plugin installation
-lvim.plugins = {
-  {
-    "gbprod/yanky.nvim",
-    config = function()
-      require("yanky").setup({
-        -- Your configuration options here
-      })
-    end,
-  },
-  "easymotion/vim-easymotion",
-  {
-    "rmagatti/auto-session",
-    config = function()
-      require("auto-session").setup {
-        log_level = "error",
-        auto_session_suppress_dirs = { "~/", "~/code", "~/Downloads", "/" },
-      }
-  end
-  },
-}
-
 -- Set key mappings for Hop commands
 vim.keymap.set('n', '<Leader><Leader>b', '<cmd>HopWordBC<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<Leader><Leader>w', '<cmd>HopWordAC<CR>', { noremap = true, silent = true })
