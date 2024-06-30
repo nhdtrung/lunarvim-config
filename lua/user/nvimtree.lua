@@ -39,4 +39,4 @@ lvim.builtin.nvimtree.setup.view.centralize_selection = true
 --   end,
 -- })
 
-vim.builtin.project.manual_mode = true
+lvim.builtin.project.manual_mode = true
