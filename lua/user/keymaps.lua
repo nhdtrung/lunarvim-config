@@ -2,14 +2,12 @@
 -- Example configs: https://github.com/LunarVim/starter.lvim
 -- Video Tutorials: https://www.youtube.com/watch?v=sFA9kX-Ud_c&list=PLhoH5vyxr6QqGu0i7tt_XoVK9v-KvZ3m6 Forum: https://www.reddit.com/r/lunarvim/
 -- Discord: https://discord.com/invite/Xb9B4Ny
---
 -- Add your custom key mappings
+-- HOW TO DISABLE DEFAULT
+-- lvim.keys.normal_mode["<leader>t"] = false
 
 -- Set leader key to comma
 lvim.leader = ","
-
--- Open/Close toggleterm
-lvim.builtin.terminal.open_mapping = "<leader>t"
 
 -- Normal mode key mapping
 lvim.keys.normal_mode = {
@@ -44,8 +42,7 @@ lvim.keys.normal_mode["<leader>V"] = ":split<CR>"
 
 -- File Navigation
 lvim.keys.normal_mode["//"] = ":noh<CR>"                       -- Clear the search
-lvim.keys.normal_mode[",t"] = ":Telescope find_files<CR>"      -- Fuzzy file selector
-lvim.keys.normal_mode[",b"] = ":Telescope buffers<CR>"         -- Buffer selector
+lvim.keys.normal_mode[",r"] = ":Telescope find_files<CR>"      -- Fuzzy file selector
 lvim.keys.normal_mode["<C-\\>"] = ":CocCommand explorer<CR>"   -- Show current file in coc-explorer
 
 -- Surround mappings
@@ -59,7 +56,14 @@ lvim.keys.visual_mode = {
 }
 
 -- Set key mappings for Hop commands
+require'hop'.setup()
 vim.keymap.set('n', '<Leader><Leader>b', '<cmd>HopWordBC<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<Leader><Leader>w', '<cmd>HopWordAC<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<Leader><Leader>j', '<cmd>HopLineAC<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<Leader><Leader>k', '<cmd>HopLineBC<CR>', { noremap = true, silent = true })
+
+-- Remap toogle terminal
+lvim.keys.normal_mode["<leader>t"] = ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>"
+
+-- Open/Close toggleterm
+-- lvim.builtin.terminal.open_mapping = "<leader>T"
