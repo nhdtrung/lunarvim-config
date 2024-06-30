@@ -67,3 +67,6 @@ lvim.keys.normal_mode["<leader>t"] = ":lua require('telescope').extensions.live_
 
 -- Open/Close toggleterm
 -- lvim.builtin.terminal.open_mapping = "<leader>T"
+
+lvim.format_on_save.enabled = true
+lvim.format_on_save.pattern = { "*.lua", "*.py" }
