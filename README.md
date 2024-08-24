@@ -8,7 +8,7 @@
 | `,.` | Last edit | 
 | `//` | Clear Hightlight |
 | `,v` | vsplit |
-| `,B` | split |
+| `,V` | hsplit |
 | `,f` | find file in Git |
 | `,t` | live grep with args |
 
